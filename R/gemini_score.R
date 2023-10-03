@@ -164,6 +164,8 @@ gemini_score <- function(Model,
         remove_recovery = yg_mean < threshold | yh_mean < threshold
         Score$sensitive_lethality[remove_lethal , i] <- NA
         Score$sensitive_recovery[remove_recovery , i] <- NA
+        Score$strong[remove_recovery , i ] <- NA
+        Score$strong[remove_lethal , i ] <- NA
     } # end for
     
     ###### calculate pvalue and fdr using difference_constant or difference_quantile
