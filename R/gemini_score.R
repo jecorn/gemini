@@ -160,8 +160,8 @@ gemini_score <- function(Model,
             # If no threshold specified, use bottom 1-percentile of data
             threshold = as.numeric(quantile(Model$y[, i], probs = 0.01)) * pc_weight
         }
-        remove_lethal = yg_mean > threshold & yh_mean > threshold
-        remove_recovery = yg_mean < threshold | yh_mean < threshold
+        remove_lethal = yg_mean < threshold | yh_mean < threshold
+        remove_recovery = yg_mean > threshold & yh_mean > threshold
         Score$sensitive_lethality[remove_lethal , i] <- NA
         Score$sensitive_recovery[remove_recovery , i] <- NA
         Score$strong[remove_recovery , i ] <- NA
